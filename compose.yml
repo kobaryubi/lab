@@ -1,0 +1,9 @@
+services:
+  terraform:
+    image: hashicorp/terraform
+    container_name: terraform
+    tty: true
+    entrypoint: /bin/sh
+    working_dir: /app/terraform/environments
+    volumes:
+      - .:/app
