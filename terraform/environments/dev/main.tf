@@ -1,3 +1,3 @@
 module "cognito" {
-    source = "../../modules/terraform-aws-cognito"
+  source = "../../modules/terraform-aws-cognito"
 }
