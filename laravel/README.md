@@ -20,3 +20,9 @@ php artisan migrate
 ```sh
 php artisan migrate:reset
 ```
+
+## Autoloading
+
+```sh
+composer dump-autoload
+```
