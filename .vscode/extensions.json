@@ -1,7 +1,5 @@
 {
   "recommendations": [
-    "4ops.terraform",
-    "bmewburn.vscode-intelephense-client",
-    "onecentlin.laravel-blade"
+    "4ops.terraform"
   ]
 }

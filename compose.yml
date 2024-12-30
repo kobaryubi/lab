@@ -13,6 +13,8 @@ services:
     tty: true
     container_name: laravel
     working_dir: /usr/src/app/laravel
+    ports:
+      - 8000:8000
     volumes: 
       - .:/usr/src/app
       - /usr/src/app/laravel/vendor
