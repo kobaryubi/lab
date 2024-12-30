@@ -7,3 +7,13 @@ services:
     working_dir: /app/terraform/environments
     volumes:
       - .:/app
+  laravel:
+    build:
+      context: laravel
+    tty: true
+    container_name: laravel
+    working_dir: /usr/src/app/laravel
+    volumes: 
+      - .:/usr/src/app
+      - /usr/src/app/laravel/vendor
+      - /usr/src/app/laravel/node_modules
