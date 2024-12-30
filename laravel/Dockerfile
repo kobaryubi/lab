@@ -11,3 +11,6 @@ WORKDIR /usr/src/app/laravel
 
 COPY package*.json ./
 RUN npm install
+
+COPY composer.json composer.lock ./
+RUN composer install
