@@ -1,11 +1,11 @@
 @extends("layouts.app")
 
 @section("content")
-  {{-- @if (session('status') == 'verification-link-sent')
-    <div>
-      {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-    </div>
-  @endif --}}
+  @if (session("status") == "verification-link-sent")
+    <p>
+      {{ __("A new verification link has been sent to the email address you provided during registration.") }}
+    </p>
+  @endif
   <form method="POST" action="{{ route('verification.send') }}">
     @csrf
     <button>{{ __("Resend Verification Email") }}</button>
