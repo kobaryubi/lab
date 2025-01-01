@@ -1,4 +1,5 @@
 {
+    "$schema": "https://getcomposer.org/schema.json",
     "type": "project",
     "scripts": {
         "dev": [
