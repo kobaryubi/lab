@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Contracts\AuthServiceInterface;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Auth\Events\Registered;
@@ -27,12 +28,17 @@ class RegisteredUserController extends Controller
      * 
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, AuthServiceInterface $authService): RedirectResponse
     {
         $validated = $request->validate([
             "email" => ["required", "string", "lowercase", "email", "max:255", "unique:".User::class],
             "password" => ["required", "confirmed", Rules\Password::defaults()],
         ]);
+
+        $authService->register(
+            email: $validated["email"],
+            password: $validated["password"]
+        );
 
         $user = User::create(
             array_merge(
