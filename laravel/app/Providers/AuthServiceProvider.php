@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Contracts\AuthServiceInterface;
+use App\Services\CognitoAuthService;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -11,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind(AuthServiceInterface::class, CognitoAuthService::class);
     }
 
     /**
