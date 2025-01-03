@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.masahikokobayashi.androidlab.ui.theme.AndroidLabTheme
 
 class MainActivity : ComponentActivity() {
@@ -21,13 +22,22 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AndroidLabTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                AndroidLabApp(modifier = Modifier.fillMaxSize())
             }
+        }
+    }
+}
+
+@Composable
+fun AndroidLabApp(modifier: Modifier = Modifier) {
+    Scaffold(modifier = modifier) { innerPadding ->
+        Surface(
+            modifier = Modifier.padding(innerPadding),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            Greeting(
+                name = "Android",
+            )
         }
     }
 }
@@ -37,7 +47,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = MaterialTheme.colorScheme.primary) {
         Text(
             text = "Hello $name!",
-            modifier = modifier
+            modifier = modifier.padding(24.dp)
         )
     }
 }
@@ -46,6 +56,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     AndroidLabTheme {
-        Greeting("Android")
+        AndroidLabApp()
     }
 }
